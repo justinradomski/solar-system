@@ -91,7 +91,7 @@ export default function Home() {
     }
   ]
 
-  const scale = 865.37 // 1px = 865.37 mi
+  const scale = 1000 // 1px = 865.37 mi
 
   // This state will store the scroll progress
   const [scrollX, setScrollX] = useState(0);
@@ -167,6 +167,12 @@ export default function Home() {
             />
           );
         })}
+        <div 
+          className={`ticker absolute bottom-0 left-[50vw] w-full bg-reapeat h-[40px]`}
+          style={{
+            backgroundImage: `url(/Ticks.svg)`,
+          }}
+          />
       </div>
       <div className={`planet-labels w-full h-[200px] flex items-center justify-center fixed bottom-[100px]`}>
         {solarSystem.map((planet) => {
@@ -195,7 +201,7 @@ export default function Home() {
           )
         })}
       </div>
-      <div className={`fixed bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center`}>
+      <div className={`fixed bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-white`}>
         Distance from Sun: <span className={`text-white`}>{distance} miles</span>
       </div>
     </main>
