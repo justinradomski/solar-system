@@ -173,7 +173,7 @@ export default function Home() {
           if(planet.distance <= 0) return
 
           // determine when the planet is in view
-          const windowWidth = window.innerWidth
+          const windowWidth = typeof window !== "undefined" ? window.innerWidth : 0
           const planetLeft = planet.distance / scale
           const planetRight = planetLeft + (planet.diameter / scale)
           const inView = planetLeft > scrollX && planetRight < scrollX + windowWidth
