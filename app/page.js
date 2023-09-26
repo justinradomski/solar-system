@@ -165,7 +165,7 @@ export default function Home() {
         style={{
           backgroundImage: `url(/Stars.svg)`,
           backgroundSize: `250px`,
-          width: `${(solarSystem[solarSystem.length - 1].distance / scale) * .01}px`,
+          width: `calc(100vw + ${(solarSystem[solarSystem.length - 1].distance / scale) * .01}px)`,
         }}
         />
       <div 
