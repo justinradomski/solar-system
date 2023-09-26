@@ -88,10 +88,21 @@ export default function Home() {
       moons: 14,
       orbitalPeriod: '164.8 years',
       funFact: 'Neptune was the first planet to be found using mathematical predictions rather than telescopic observation.'
+    },
+    {
+      name: 'Pluto',
+      distance: 3670000000, // Average distance from the Sun
+      diameter: 1473, // Approximate diameter in miles
+      image: '/Pluto.svg',
+      moons: 5, // Known as of 2022
+      orbitalPeriod: '248.0 years',
+      funFact: 'Pluto was reclassified from a planet to a dwarf planet in 2006.'
     }
   ]
 
   const scale = 1000 // 1px = 865.37 mi
+  const speedOfLight = 186282 // 186,282 mi/s
+  const speedOfLightScale = speedOfLight / scale
 
   // This state will store the scroll progress
   const [scrollX, setScrollX] = useState(0);
