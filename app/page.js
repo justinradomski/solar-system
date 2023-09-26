@@ -123,12 +123,37 @@ export default function Home() {
     controls.start({ x: -parallaxEffectValue });
   }, [scrollX, controls]);
 
+  // Change vertical scroll to a horizontal scroll
+  useEffect(() => {
+    const handleWheel = (e) => {
+      // Prevent the default behavior
+      e.preventDefault();
+
+      // Get the current scroll position
+      const currentScrollX = window.scrollX;
+
+      // Scroll the window horizontally
+      window.scrollTo({
+        top: 0,
+        left: currentScrollX + e.deltaY,
+      });
+    }
+  
+    // Attach the event listener
+    window.addEventListener('wheel', handleWheel, { passive: false });
+    
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+    };
+  }, []);
+
   let distance = Math.round(scrollX * scale)
   // add commas to the distance
   distance = distance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
   return (
-    <main className="relative h-screen overflow-y-clip w-max">
+    <main className="relative h-full overflow-y-clip w-max">
       <motion.div 
         animate={controls}
         transition={{
